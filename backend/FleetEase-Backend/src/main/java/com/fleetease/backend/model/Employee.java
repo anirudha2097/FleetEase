@@ -1,9 +1,5 @@
 package com.fleetease.backend.model;
 
-import java.util.List;
-
-import com.fleetease.backend.enums.CabType;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,18 +12,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CabOwner {
+public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cabOwnerId;
+	private Integer employeeId;
 	
-	private String cabOwnerName;
-	
+	private String name;
+
 	private Address address;
-	
-	private List<String> cabRegistrationNo;
-	
-	private CabType cabType;
-	
+
+	private String mobileNo;
+
+	private String position;
 }
