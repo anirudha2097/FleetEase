@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Banks {
+public class Bank {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,10 @@ public class Banks {
 
 	private String ifscCode;
 
-	private Double accountBalance;
+	private Double accountClosingBalance;
 
 	private TransactionType Transactions;
 
 	private String transactionDetails;
+	
 }

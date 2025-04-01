@@ -1,7 +1,6 @@
 package com.fleetease.backend.model;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import com.fleetease.backend.enums.CabType;
 
