@@ -1,7 +1,6 @@
 package com.fleetease.backend.model;
 
 import com.fleetease.backend.enums.PaymentMode;
-import com.fleetease.backend.enums.PaymentStatus;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,21 +14,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Creditors {
+public class Debitor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer creditorsId;
+	private Integer debtorsId;
 	
-	private Integer vendorId;
-
-	private Integer bookingsId;
+	private Integer bookingsID;
 
 	private Integer billNo;
 
 	private Double billAmount;
-
-	private PaymentStatus paymentStatus;
 
 	private PaymentMode paymentMode;
 
