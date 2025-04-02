@@ -1,5 +1,6 @@
 package com.fleetease.backend.model;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class Firm {
 	
 	private String name;
 	
+	@Embedded
 	private Address address;
 	
 	private String contactNo;

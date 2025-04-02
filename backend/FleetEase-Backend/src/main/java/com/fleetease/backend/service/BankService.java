@@ -2,13 +2,14 @@ package com.fleetease.backend.service;
 
 import java.util.List;
 
+import com.fleetease.backend.dto.BankDto;
 import com.fleetease.backend.enums.TransactionType;
 import com.fleetease.backend.exceptions.BankException;
 import com.fleetease.backend.model.Bank;
 
-public interface BanksService {
+public interface BankService {
 
-	public Bank addBank(Bank bank) throws BankException;
+	public Bank addBank(BankDto bankDto) throws BankException;
 	
 	public Bank getBank(Integer bankId) throws BankException;
 	
@@ -18,6 +19,6 @@ public interface BanksService {
 	
 	public List<Bank> getAllBanks() throws BankException;
 	
-	public Bank updateBankTransactions(Integer bankId, Long amount, TransactionType transactionType);
+	public Bank updateBankTransactions(Integer bankId, Long amount, TransactionType transactionType, String transactionDetails);
 	
 }
