@@ -2,8 +2,10 @@ package com.fleetease.backend.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fleetease.backend.enums.CabType;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +26,9 @@ public class CabOwner {
 	
 	private String cabOwnerName;
 	
+	@Embedded
 	private Address address;
-	
+
 	private List<String> cabRegistrationNo;
 	
 	private CabType cabType;
