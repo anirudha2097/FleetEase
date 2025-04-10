@@ -1,4 +1,4 @@
-package com.fleetease.backend.model;
+package com.fleetease.backend.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,10 +7,6 @@ import com.fleetease.backend.enums.CabType;
 import com.fleetease.backend.enums.DutyType;
 import com.fleetease.backend.enums.Status;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,12 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Booking {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer bookingId;
+public class BookingDto {
 
 	private Integer vendorId;
 
@@ -44,9 +35,9 @@ public class Booking {
 	private String dropPlace;
 
 	private String tentativeRoute;
-
-	private DutyType dutyType;
 	
+	private DutyType dutyType;
+
 	private CabType cabType;
 
 	private Status status;

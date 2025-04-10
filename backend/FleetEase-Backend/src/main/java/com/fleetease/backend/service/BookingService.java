@@ -2,20 +2,22 @@ package com.fleetease.backend.service;
 
 import java.util.List;
 
+import com.fleetease.backend.dto.BookingDto;
 import com.fleetease.backend.exceptions.BookingException;
+import com.fleetease.backend.model.Booking;
 
 public interface BookingService {
 
-	public BookingService addBooking(BookingService booking) throws BookingException;
+	public Booking addBooking(BookingDto bookingDto) throws BookingException;
 	
-	public BookingService getBooking(Integer bookingId) throws BookingException;
+	public Booking getBooking(Integer bookingId) throws BookingException;
 	
 	public String deleteBooking(Integer bookingId) throws BookingException;
 	
-	public BookingService updateBooking(Integer bookingId, BookingService booking) throws BookingException;
+	public Booking updateBooking(Booking booking) throws BookingException;
 	
-	public List<BookingService> getAllBooking() throws BookingException;
+	public List<Booking> getAllBooking() throws BookingException;
 	
-	public List<BookingService> getAllBookingByVendor(Integer vendorId) throws BookingException;
+	public List<Booking> getAllBookingByVendor(Integer vendorId) throws BookingException;
 	
 } 
