@@ -21,15 +21,22 @@ public class BankServiceImpl implements BankService {
 	@Override
 	public Bank addBank(BankDto bankDto) throws BankException {
 
-		Bank bank = new Bank();
-		bank.setAccountNo(bankDto.getAccountNo());
-		bank.setIfscCode(bankDto.getIfscCode());
-		Bank saveBank = bankRepo.save(bank);
+		Bank existingBank = bankRepo.findByAccountNoAndIfscCode(bankDto.getAccountNo(), bankDto.getIfscCode());
 		
-		if(saveBank!=null) {
-			return saveBank;			
+		if(existingBank==null) {
+			
+			Bank bank = new Bank();
+			bank.setAccountNo(bankDto.getAccountNo());
+			bank.setIfscCode(bankDto.getIfscCode());
+			Bank saveBank = bankRepo.save(bank);
+			
+			if(saveBank!=null) {
+				return saveBank;			
+			} else {
+				throw new BankException("Bank not added!");
+			}
 		} else {
-			throw new BankException("Bank not added!");
+			throw new BankException("Bank already exists!");
 		}
 	}
 
@@ -62,9 +69,9 @@ public class BankServiceImpl implements BankService {
 	}
 
 	@Override
-	public Bank updateBank(Integer bankId, Bank bank) throws BankException {
+	public Bank updateBank(Bank bank) throws BankException {
 
-		Optional<Bank> optBank = bankRepo.findById(bankId);
+		Optional<Bank> optBank = bankRepo.findById(bank.getBankId());
 		
 		if(optBank.isPresent()) {
 			Bank updatedBank = bankRepo.save(bank);
@@ -114,6 +121,20 @@ public class BankServiceImpl implements BankService {
 //		}
 		
 		return null;
+	}
+
+	@Override
+	public Bank getBankByAccountNo(String accountNo) throws BankException {
+		// TODO Auto-generated method stub
+		
+		Bank bank = bankRepo.findByAccountNo(accountNo);
+		
+		if(bank!=null) {
+			return bank;
+		} else {
+			throw new BankException("Bank not found with this accound no!");
+		}
+		
 	}
 
 }

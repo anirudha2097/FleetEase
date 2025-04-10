@@ -1,15 +1,15 @@
 package com.fleetease.backend.model;
 
-import java.util.List;
+import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fleetease.backend.enums.CabType;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,11 +26,13 @@ public class CabOwner {
 	
 	private String cabOwnerName;
 	
+	@Column(unique = true)
+	private String mobileNo;
+	
 	@Embedded
 	private Address address;
 
-	private List<String> cabRegistrationNo;
-	
-	private CabType cabType;
-	
+	@OneToMany(mappedBy = "cab_owner")
+	private Set<Car> cabs;
+		
 }

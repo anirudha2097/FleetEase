@@ -15,10 +15,11 @@ public interface BankService {
 	
 	public String deleteBank(Integer bankId) throws BankException;
 	
-	public Bank updateBank(Integer bankId, Bank bank) throws BankException;
+	public Bank updateBank(Bank bank) throws BankException;
 	
 	public List<Bank> getAllBanks() throws BankException;
 	
 	public Bank updateBankTransactions(Integer bankId, Long amount, TransactionType transactionType, String transactionDetails);
 	
+	public Bank getBankByAccountNo(String accountNo) throws BankException;
 }
