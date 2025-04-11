@@ -1,13 +1,12 @@
 package com.fleetease.backend.model;
 
-import com.fleetease.backend.enums.Role;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Transient;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,26 +15,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
-
+public class Guest {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer userId;
-	
-	private Role userRole;
-	
-	private String firstName;
-	
-	private String lastName;
-	
-	private String email;
+	private Integer guestId;
+
+	private String name;
 	
 	private String mobileNo;
 	
-	@OneToOne
-	private Firm firmId;
-	
-	@Transient
-	private String password;
-	
+	@OneToMany(mappedBy = "guest")
+	private List<Booking> bookings;
 }
+
