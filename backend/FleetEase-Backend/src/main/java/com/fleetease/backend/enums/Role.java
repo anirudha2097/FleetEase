@@ -1,6 +1,6 @@
 package com.fleetease.backend.enums;
 
-public enum UserRole {
+public enum Role {
 
 	SUPERADMIN, ADMIN, FLEETOWNER, EMPLOYEE, DRIVER
 }

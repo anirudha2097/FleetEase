@@ -1,5 +1,8 @@
 package com.fleetease.backend.model;
 
+import com.fleetease.backend.enums.Role;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +27,8 @@ public class Employee {
 	@Embedded
 	private Address address;
 
+	@Column(unique = true)
 	private String mobileNo;
 
-	private String position;
+	private Role role;
 }

@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import com.fleetease.backend.enums.CabType;
 import com.fleetease.backend.enums.DutyType;
 import com.fleetease.backend.enums.Status;
+import com.fleetease.backend.model.Guest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,9 +21,7 @@ public class BookingDto {
 
 	private LocalDateTime bookingDate;
 
-	private String guestName;
-
-	private String guestMobileNo;
+	private Guest guest;
 
 	private LocalDateTime pickupDateAndTime;
 

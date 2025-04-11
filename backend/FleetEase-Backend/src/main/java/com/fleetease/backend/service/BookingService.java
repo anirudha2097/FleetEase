@@ -20,4 +20,5 @@ public interface BookingService {
 	
 	public List<Booking> getAllBookingByVendor(Integer vendorId) throws BookingException;
 	
+//	public List<Booking> getAllBookingByGuest(Integer guestId) throws BookingException;
 } 

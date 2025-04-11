@@ -1,9 +1,13 @@
 package com.fleetease.backend.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,13 +22,21 @@ public class CarRecord {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer carRecordId;
 	
-	private Integer bookingId;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "booking_id")
+	private Booking bookingId;
 
-	private Integer dutySlipID;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dutyslip_id")
+	private DutySlip dutyslipId;
 
-	private String carRegistrationNo;
+	@ManyToOne
+	@JoinColumn(name = "car_id")
+	private Car car;
 
-	private String guestName;
+	@ManyToOne
+	@JoinColumn(name = "guest_id")
+	private Guest guestId;
 
 	private String Route;
 
@@ -42,6 +54,7 @@ public class CarRecord {
 
 	private Double Profit;
 
-	private Double maintainanceTotalBillAmount;
+	private CarMaintainance carMaintainance;
+//	private Double maintainanceTotalBillAmount;
 
 }

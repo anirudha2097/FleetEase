@@ -24,5 +24,5 @@ public interface CarService {
 	
 	public List<Car> getAllCarsByType(CabType cabType) throws CarException;
 	
-	public List<Car> getAllCarsByCabOwner(CabOwner cabOwner) throws CarException;
+	public List<Car> getAllCarsByCabOwner(Integer cabOwnerId) throws CarException;
 }
