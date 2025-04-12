@@ -1,8 +1,7 @@
 package com.fleetease.backend.model;
 
-import com.fleetease.backend.enums.IdType;
+import com.fleetease.backend.enums.RatePerson;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,9 +21,11 @@ public class Rate {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer rateId;
 	
-	private IdType idType;
+//	Vendor or Cab owner
+	private RatePerson ratePerson;
 	
-	private Integer idTypeValue;
+//	Vendor id or Cab ownder id
+	private Integer ratePersonId;
 	
 	@Embedded
 //	@Column(name="sedan_rate", insertable=false, updatable=false)

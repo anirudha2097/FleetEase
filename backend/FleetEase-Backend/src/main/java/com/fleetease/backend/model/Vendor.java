@@ -1,6 +1,7 @@
 package com.fleetease.backend.model;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,10 +28,12 @@ public class Vendor {
 	@Embedded
 	private Address address;
 	
+	@Column(unique = true)
 	private String gstinNo;
 	
+	@Column(unique = true)
 	private String mobileNo;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "vendor_id")
 	private Rate rate;
 }

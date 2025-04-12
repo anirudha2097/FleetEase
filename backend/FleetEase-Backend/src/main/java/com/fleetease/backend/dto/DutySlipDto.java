@@ -1,43 +1,31 @@
-package com.fleetease.backend.model;
+package com.fleetease.backend.dto;
 
 import java.time.LocalDateTime;
 
 import com.fleetease.backend.enums.PaymentMode;
+import com.fleetease.backend.model.Booking;
+import com.fleetease.backend.model.CabOwner;
+import com.fleetease.backend.model.Car;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class DutySlip {
+public class DutySlipDto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer dutySlipId;
-	
 	private Integer dutySlipNo;
 
-	@OneToOne(mappedBy ="dutyslip")
 	private Booking bookingId;
 
 //	private CabType cabType;
 
 //	car registration no
-	@OneToOne(mappedBy = "dutyslip")
 	private Car car;
 
-	@ManyToOne
-	@JoinColumn(name = "cab_owner_id")
 	private CabOwner cabOwner;
 
 	private Integer actualDaysOfTrip;
@@ -73,5 +61,4 @@ public class DutySlip {
 	private PaymentMode PaymentModeToCabOwner;
 
 	private String remark;
-	
 }
