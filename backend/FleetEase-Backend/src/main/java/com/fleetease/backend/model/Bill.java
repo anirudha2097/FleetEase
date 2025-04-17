@@ -1,12 +1,11 @@
 package com.fleetease.backend.model;
 
-import java.util.List;
+import com.fleetease.backend.enums.PaymentMode;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,18 +14,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Guest {
-	
+public class Bill {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer guestId;
-
-	private String name;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE )
+	private Integer billId;
 	
-	private String mobileNo;
+	private Double billAmount;
 	
-//	(mappedBy = "guest")
-	@OneToMany
-	private List<Booking> bookings;
+	private PaymentMode paymentMode;
+	
+//	(mappedBy = "bill")
 }
-

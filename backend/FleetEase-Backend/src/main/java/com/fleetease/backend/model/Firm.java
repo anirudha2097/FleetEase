@@ -1,5 +1,6 @@
 package com.fleetease.backend.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -32,7 +33,7 @@ public class Firm {
 	@Column(unique = true)
 	private String GstinNo;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private User userId;
 	
 	

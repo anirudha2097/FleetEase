@@ -43,7 +43,7 @@ public class CarMaintainanceServiceImpl implements CarMaintainanceService {
 	}
 
 	@Override
-	public CarMaintainance getCarMaintainance(Integer carMaintainanceId) throws CarMaintainanceException {
+	public CarMaintainance getCarMaintainance(Long carMaintainanceId) throws CarMaintainanceException {
 		
 		Optional<CarMaintainance> optCarMaintainance = carMaintainanceRepo.findById(carMaintainanceId);
 		
@@ -56,7 +56,7 @@ public class CarMaintainanceServiceImpl implements CarMaintainanceService {
 	}
 
 	@Override
-	public String deleteCarMaintainance(Integer carMaintainanceId) throws CarMaintainanceException {
+	public String deleteCarMaintainance(Long carMaintainanceId) throws CarMaintainanceException {
 		// TODO Auto-generated method stub
 		
 		Optional<CarMaintainance> optCarMaintainance = carMaintainanceRepo.findById(carMaintainanceId);

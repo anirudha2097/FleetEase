@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.fleetease.backend.enums.PaymentMode;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,17 +28,18 @@ public class DutySlip {
 	
 	private Integer dutySlipNo;
 
-	@OneToOne(mappedBy ="dutyslip")
+//	(mappedBy ="dutyslip")
+	@OneToOne(cascade = CascadeType.ALL)
 	private Booking bookingId;
 
 //	private CabType cabType;
 
-//	car registration no
-	@OneToOne(mappedBy = "dutyslip")
+//	car registration no (mappedBy = "dutyslip")
+	@OneToOne(cascade = CascadeType.ALL)
 	private Car car;
 
 	@ManyToOne
-	@JoinColumn(name = "cab_owner_id")
+//	@JoinColumn(name = "cab_owner_id")
 	private CabOwner cabOwner;
 
 	private Integer actualDaysOfTrip;
@@ -64,14 +66,19 @@ public class DutySlip {
 
 	private Double totalBillAmountReceiving;
 
-	private Double TotalBillAmountToCabOwner;
+	private Double totalBillAmountToCabOwner;
 
 	private Double advanceAmountToCabOwner;
 
 	private Double remainingPaymentToCabOwner;
 
-	private PaymentMode PaymentModeToCabOwner;
+	private PaymentMode paymentModeToCabOwner;
+	
+	private PaymentMode receivingPaymentMode;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	private Bill bill;
+	
 	private String remark;
 	
 }

@@ -6,6 +6,8 @@ import com.fleetease.backend.enums.CabType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,12 +34,13 @@ public class Car {
 	
 	private String modelName;
 	
-	private Year registrationYear;
+	private Integer registrationYear;
 	
+	@Enumerated(EnumType.STRING)
 	private CabType cabType;
 	
 	@ManyToOne
-	@JoinColumn(name="cab_owner_id", nullable=false)
-	private CabOwner cabOwnerId;
+	@JoinColumn(name="cab_owner_id")
+	private CabOwner cabOwner;
 	
 }

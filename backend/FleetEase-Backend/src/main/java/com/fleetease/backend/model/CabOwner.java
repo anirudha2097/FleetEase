@@ -22,7 +22,7 @@ public class CabOwner {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cabOwnerId;
+	private Integer id;
 	
 	private String cabOwnerName;
 	
@@ -32,7 +32,7 @@ public class CabOwner {
 	@Embedded
 	private Address address;
 
-	@OneToMany(mappedBy = "cab_owner")
+	@OneToMany
 	private Set<Car> cabs;
 		
 }

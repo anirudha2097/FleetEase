@@ -10,9 +10,9 @@ public interface CarMaintainanceService {
 
 	public CarMaintainance addCarMaintainance(CarMaintainanceDto carMaintainanceDto) throws CarMaintainanceException;
 	
-	public CarMaintainance getCarMaintainance(Integer carMaintainanceId) throws CarMaintainanceException;
+	public CarMaintainance getCarMaintainance(Long carMaintainanceId) throws CarMaintainanceException;
 	
-	public String deleteCarMaintainance(Integer carMaintainanceId) throws CarMaintainanceException;
+	public String deleteCarMaintainance(Long carMaintainanceId) throws CarMaintainanceException;
 	
 	public CarMaintainance updateCarMaintainance(CarMaintainance carMaintainance) throws CarMaintainanceException;
 

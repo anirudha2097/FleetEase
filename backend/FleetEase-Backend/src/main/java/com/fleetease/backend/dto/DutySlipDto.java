@@ -3,10 +3,12 @@ package com.fleetease.backend.dto;
 import java.time.LocalDateTime;
 
 import com.fleetease.backend.enums.PaymentMode;
+import com.fleetease.backend.model.Bill;
 import com.fleetease.backend.model.Booking;
 import com.fleetease.backend.model.CabOwner;
 import com.fleetease.backend.model.Car;
 
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +34,7 @@ public class DutySlipDto {
 
 	private Long startKilometer;
 
-	private LocalDateTime StartDateAndTime;
+	private LocalDateTime startDateAndTime;
 
 	private Long endKilometer;
 
@@ -52,13 +54,17 @@ public class DutySlipDto {
 
 	private Double totalBillAmountReceiving;
 
-	private Double TotalBillAmountToCabOwner;
+	private Double totalBillAmountToCabOwner;
 
 	private Double advanceAmountToCabOwner;
 
 	private Double remainingPaymentToCabOwner;
 
-	private PaymentMode PaymentModeToCabOwner;
+	private PaymentMode paymentModeToCabOwner;
+	
+	private PaymentMode receivingPaymentMode;
+	
+	private Bill bill;
 
 	private String remark;
 }

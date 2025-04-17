@@ -32,7 +32,7 @@ public class Booking {
 	private LocalDateTime bookingDate;
 
 	@ManyToOne
-	@JoinColumn(name = "guest_id")
+//	@JoinColumn(name = "guest_id")
 	private Guest guestId;
 
 	private LocalDateTime pickupDateAndTime;
