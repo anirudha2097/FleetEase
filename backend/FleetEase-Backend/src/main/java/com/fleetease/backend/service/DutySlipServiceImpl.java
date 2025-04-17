@@ -43,6 +43,7 @@ public class DutySlipServiceImpl implements DutySlipService{
 			dutySlip.setTotalBillAmountToCabOwner(dutySlipDto.getTotalBillAmountToCabOwner());
 			dutySlip.setTotalTollAmount(dutySlipDto.getTotalTollAmount());
 			dutySlip.setTotalTripKilometer(dutySlipDto.getTotalTripKilometer());
+			dutySlip.setReceivingPaymentMode(dutySlipDto.getReceivingPaymentMode());
 			
 			DutySlip savedDutySlip = dutySlipRepo.save(dutySlip);
 			

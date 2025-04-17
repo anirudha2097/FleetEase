@@ -20,7 +20,7 @@ public class CarDto {
 	
 	private String modelName;
 	
-	private Year registrationYear;
+	private Integer registrationYear;
 	
 	private CabType cabType;
 	

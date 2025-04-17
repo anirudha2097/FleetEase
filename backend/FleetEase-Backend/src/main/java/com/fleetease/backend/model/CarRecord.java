@@ -23,19 +23,19 @@ public class CarRecord {
 	private Integer carRecordId;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "booking_id")
+//    @JoinColumn(name = "booking_id")
 	private Booking bookingId;
 
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dutyslip_id")
+//    @JoinColumn(name = "dutyslip_id")
 	private DutySlip dutyslipId;
 
 	@ManyToOne
-	@JoinColumn(name = "car_id")
+//	@JoinColumn(name = "car_id")
 	private Car car;
 
 	@ManyToOne
-	@JoinColumn(name = "guest_id")
+//	@JoinColumn(name = "guest_id")
 	private Guest guestId;
 
 	private String Route;
@@ -54,6 +54,8 @@ public class CarRecord {
 
 	private Double Profit;
 
+	@OneToOne
+	@JoinColumn(name = "car_maintainance_car_maintainance_id", referencedColumnName = "carMaintainanceId")
 	private CarMaintainance carMaintainance;
 //	private Double maintainanceTotalBillAmount;
 

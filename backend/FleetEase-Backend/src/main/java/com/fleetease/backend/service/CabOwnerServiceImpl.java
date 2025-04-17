@@ -73,7 +73,7 @@ public class CabOwnerServiceImpl implements CabOwnerService {
 	@Override
 	public CabOwner updateCabOwner(CabOwner cabOwner) throws CabOwnerException {
 		
-		Optional<CabOwner> optCabOwner = cabOwnerRepo.findById(cabOwner.getCabOwnerId());
+		Optional<CabOwner> optCabOwner = cabOwnerRepo.findById(cabOwner.getId());
 		
 		if(optCabOwner.isPresent()) {
 					

@@ -26,7 +26,7 @@ public class CarServiceImpl implements CarService {
 		if(car==null) {
 			Car carEntity = new Car();
 			carEntity.setCabType(carDto.getCabType());
-			carEntity.setCabOwnerId(carDto.getCabOwnerId());
+			carEntity.setCabOwner(carDto.getCabOwnerId());
 			carEntity.setManufacturer(carDto.getManufacturer());
 			carEntity.setModelName(carDto.getModelName());
 			carEntity.setRegistrationNo(carDto.getRegistrationNo());

@@ -1,6 +1,7 @@
 package com.fleetease.backend.model;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -34,6 +35,7 @@ public class Vendor {
 	@Column(unique = true)
 	private String mobileNo;
 	
-	@OneToOne(mappedBy = "vendor_id")
+//	(mappedBy = "vendor_id")
+	@OneToOne(cascade = CascadeType.ALL)
 	private Rate rate;
 }

@@ -32,9 +32,6 @@ public class User {
 	
 	private String mobileNo;
 	
-	@OneToOne
-	private Firm firmId;
-	
 	@Transient
 	private String password;
 	
